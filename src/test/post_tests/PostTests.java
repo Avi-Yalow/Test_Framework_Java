@@ -1,15 +1,14 @@
-package tests.post_tests;
+package test.post_tests;
 
 import io.restassured.response.Response;
 import main.java.client.PostAPI;
 import main.java.models.Post;
 import main.java.utils.Reporter;
 
+import static test.utils.PostAssertions.*;
+import static test.utils.PostDataGenerator.*;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-
-import static tests.utils.PostDataGenerator.*;
-import static tests.utils.PostAssertions.*;
 
 public class PostTests {
 
@@ -51,7 +50,7 @@ public class PostTests {
         assertPostMatchesJsonSchema(response);
     }
 
-    @Test()
+    @Test
     public void testGetAllPosts() {
         Response response = postAPI.getAllPosts();
         assertGetAllPosts(response);

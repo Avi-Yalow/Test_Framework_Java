@@ -1,4 +1,4 @@
-package tests.utils;
+package test.utils;
 
 import main.java.models.Post;
 
