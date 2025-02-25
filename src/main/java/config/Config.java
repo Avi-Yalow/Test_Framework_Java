@@ -1,19 +1,19 @@
-package com.moonactive.config;
+package main.java.config;
 
 import io.restassured.config.LogConfig;
 
 import java.io.IOException;
 import java.io.PrintStream;
 
-import static com.moonactive.utils.Constants.*;
 import static io.restassured.RestAssured.config;
-
+import static main.java.utils.Constants.*;
 
 public class Config {
 
     private static Config instance;
 
-    private Config() {}
+    private Config() {
+    }
 
     public static Config getInstance() {
         if (instance == null) {
@@ -22,7 +22,7 @@ public class Config {
         return instance;
     }
 
-    public static void ConfigLogOutput(){
+    public static void ConfigLogOutput() {
         try {
             PrintStream printStream = new PrintStream("TestsResults.log");
             config = config().logConfig(LogConfig.logConfig().enablePrettyPrinting(true).defaultStream(printStream));
@@ -30,6 +30,7 @@ public class Config {
             throw new RuntimeException(e);
         }
     }
+
     public String getBaseUrl() {
         return BASE_URI;
     }
